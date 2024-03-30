@@ -1,0 +1,74 @@
+import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:flutter/material.dart';
+import 'package:heath_wellness_app/screens/HomePage.dart';
+import 'package:heath_wellness_app/screens/MentalHealth.dart';
+import 'package:heath_wellness_app/screens/Progress.dart';
+import 'package:heath_wellness_app/screens/RecordData.dart';
+
+class BottomNavBar extends StatefulWidget {
+  BottomNavBar({Key? key}) : super(key: key);
+  @override
+  State<BottomNavBar> createState() => _HomePage();
+}
+
+class _HomePage extends State<BottomNavBar> {
+  int _selectedIndex = 0;
+
+  void _navigateBottomBar(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  List<Widget> _pages = [
+    HomePage(),
+    MentalHealth(),
+    Progress(),
+    RecordData()
+  ];
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Scaffold(
+            appBar: AppBar(
+              toolbarHeight: 5,
+              backgroundColor: Color.fromARGB(255, 244, 236, 216),
+            ),
+            body: _pages[_selectedIndex],
+            bottomNavigationBar: Container(
+              color: Colors.deepPurple,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                child: GNav(
+                    selectedIndex: _selectedIndex,
+                    onTabChange: _navigateBottomBar,
+                    gap: 10,
+                    backgroundColor: Color.fromRGBO(26, 126, 65, 0.612),
+                    color: Colors.white,
+                    activeColor: Colors.white,
+                    padding: EdgeInsets.all(16),
+                    tabBackgroundColor: Color.fromRGBO(68, 166, 106, 0.612),
+                    tabs: [
+                      GButton(
+                        icon: Icons.home_rounded,
+                        text: 'Home',
+                        semanticLabel: 'HomePage',
+                      ),
+                      GButton(
+                        icon: Icons.health_and_safety,
+                        text: 'Mental Health',
+                      ),
+                      GButton(
+                        icon: Icons.align_vertical_bottom,
+                        text: 'Progress',
+                      ),
+                      GButton(
+                        icon: Icons.format_list_bulleted_add,
+                        text: 'Record Data',
+                      )
+                    ]),
+              ),
+            )));
+  }
+}
