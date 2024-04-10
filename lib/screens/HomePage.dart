@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:heath_wellness_app/model/user.dart';
 import 'package:heath_wellness_app/screens/MenuDrawer.dart';
 import 'package:lottie/lottie.dart';
 
 
 class HomePage extends StatelessWidget {
+  final User user;
+
+  HomePage({ required this.user});
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -68,7 +74,7 @@ class HomePage extends StatelessWidget {
                         ),
                         SizedBox(height: 6),
                         Text(
-                          'Shejal Yadav',
+                          '${user.username}',
                           style: TextStyle(
                               fontSize: 24, fontWeight: FontWeight.bold),
                         ),

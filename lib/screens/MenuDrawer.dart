@@ -1,12 +1,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:heath_wellness_app/main.dart';
+import 'package:heath_wellness_app/model/user.dart';
 import 'package:heath_wellness_app/screens/HomePage.dart';
 import 'package:heath_wellness_app/screens/MentalHealth.dart';
 import 'package:heath_wellness_app/screens/RecordData.dart';
 import 'package:heath_wellness_app/screens/Progress.dart';
 
 class MenuDrawer extends StatelessWidget {
+  late final User user;
+
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -32,7 +36,7 @@ class MenuDrawer extends StatelessWidget {
             ),
             onTap: () {
              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => HomePage()));
+                  MaterialPageRoute(builder: (context) => HomePage(user: user,)));
             },
           ),
           ListTile(

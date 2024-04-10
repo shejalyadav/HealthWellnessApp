@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:heath_wellness_app/model/user.dart';
 import 'package:heath_wellness_app/screens/HomePage.dart';
 import 'package:heath_wellness_app/screens/MenuDrawer.dart';
 import 'package:heath_wellness_app/screens/SignUpPage.dart';
 
+
 class RecordData extends StatelessWidget {
+ late final User user;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -303,7 +307,7 @@ class RecordData extends StatelessWidget {
                         onPressed: () {
                           Navigator.push(
                             context,
-                            MaterialPageRoute(builder: (context) => HomePage()),
+                            MaterialPageRoute(builder: (context) => HomePage(user: user)),
                           );
                         },
                         child: Text(

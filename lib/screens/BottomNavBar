@@ -1,5 +1,6 @@
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:heath_wellness_app/model/user.dart';
 import 'package:heath_wellness_app/screens/HomePage.dart';
 import 'package:heath_wellness_app/screens/MentalHealth.dart';
 import 'package:heath_wellness_app/screens/Progress.dart';
