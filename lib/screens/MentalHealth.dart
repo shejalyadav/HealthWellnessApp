@@ -1,10 +1,14 @@
 import 'package:flutter/widgets.dart';
+import 'package:heath_wellness_app/model/user.dart';
 import 'package:heath_wellness_app/screens/MenuDrawer.dart';
 import 'package:flutter/material.dart';
 import 'package:heath_wellness_app/screens/Progress.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 class MentalHealth extends StatelessWidget {
+   final User user;
+
+  const MentalHealth({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +76,7 @@ class MentalHealth extends StatelessWidget {
             showUnselectedLabels: false,
 
           ),
-        drawer: MenuDrawer(),
+        drawer: MenuDrawer(user: user,),
         body: SingleChildScrollView(
           child: Column(
             children: [

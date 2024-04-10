@@ -6,12 +6,14 @@ import 'package:heath_wellness_app/screens/SignUpPage.dart';
 
 
 class RecordData extends StatelessWidget {
- late final User user;
+  final User user;
+
+  const RecordData({super.key, required this.user});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: MenuDrawer(),
+      drawer: MenuDrawer(user: user,),
         appBar: AppBar(
           title: Row(
             children: [

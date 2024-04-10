@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.grey[100],
-        drawer: MenuDrawer(),
+        drawer: MenuDrawer(user: user,),
         appBar: AppBar(
           backgroundColor: Colors.grey[100],
           elevation: 0.0,

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:heath_wellness_app/model/user.dart';
 import 'package:heath_wellness_app/screens/MenuDrawer.dart';
 import 'package:heath_wellness_app/screens/SignUpPage.dart';
 import 'package:lottie/lottie.dart';
@@ -8,6 +9,10 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:intl/intl.dart';
 
 class Progress extends StatelessWidget {
+   final User user;
+
+  const Progress({super.key, required this.user});
+  
   @override
   Widget build(BuildContext context) {
     dynamic now = new DateTime.now();
@@ -100,7 +105,7 @@ class Progress extends StatelessWidget {
             showUnselectedLabels: false,
 
           ),
-        drawer: MenuDrawer(),
+        drawer: MenuDrawer(user: user),
         body: SingleChildScrollView(
           child: Column(
             children: [

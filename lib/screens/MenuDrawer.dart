@@ -8,7 +8,10 @@ import 'package:heath_wellness_app/screens/RecordData.dart';
 import 'package:heath_wellness_app/screens/Progress.dart';
 
 class MenuDrawer extends StatelessWidget {
-  late final User user;
+   final User user;
+
+  const MenuDrawer({super.key, required this.user});
+ 
 
 
   @override
@@ -48,7 +51,7 @@ class MenuDrawer extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => MentalHealth()));
+                  MaterialPageRoute(builder: (context) => MentalHealth(user: user)));
             },
           ),
           ListTile(
@@ -60,7 +63,7 @@ class MenuDrawer extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => Progress()));
+                  MaterialPageRoute(builder: (context) => Progress(user: user)));
             },
           ),
 
@@ -73,7 +76,7 @@ class MenuDrawer extends StatelessWidget {
             ),
             onTap: () {
               Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => RecordData()));
+                  MaterialPageRoute(builder: (context) => RecordData(user: user)));
             },
           ),
         ],
